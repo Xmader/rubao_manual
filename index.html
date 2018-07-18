@@ -73,21 +73,6 @@
             display: none;
         }
 
-        audio {
-            position: absolute;
-            right: 0px;
-        }
-
-        .audio_Firefox {
-            margin-right: 62px;
-        }
-
-        .audio {
-            margin-right: 32px;
-            margin-bottom: 8px;
-            bottom: 0px;
-        }
-
         .download_music {
             position: absolute;
             right: 0px;
@@ -107,23 +92,66 @@
             top: 13px;
         }
 
+        @media screen and (min-width: 510.1px) {
+            audio {
+                position: absolute;
+                right: 0px;
+            }
+
+            .audio_Firefox {
+                margin-right: 62px;
+            }
+
+            .audio {
+                margin-right: 32px;
+                margin-bottom: 8px;
+                bottom: 0px;
+            }
+        }
+
+        @media screen and (max-width: 510.1px) {
+            .list-group-item.chang {
+                padding-bottom: 63px !important;
+            }
+
+            audio {
+                padding-top: 73px;
+                position: absolute;
+                left: 1rem;
+            }
+
+            .list-group-item.chang.chang_chrome {
+                margin-top: 15px;
+                padding-bottom: 53px !important;
+            }
+
+            .list-group-item.chang.chang_chrome audio {
+                padding-top: 48px;
+            }
+
+            .download_music {
+                margin-top: 16.5px !important;
+                left: 286px;
+            }
+        }
+
         .fa-download:hover {
             color: #48A0F7;
         }
 
-        .icon{
+        .icon {
             position: absolute;
-height: 30px;
-margin-left: 1rem;
+            height: 30px;
+            margin-left: 1rem;
         }
     </style>
 </head>
 
 <body>
     <nav class="navbar navbar-dark bg-primary top-nav">
-            <img src="icon.jpg" class="icon" />
+        <img src="icon.jpg" class="icon" />
         <span class="navbar-brand">
-            
+
             乳包指南
         </span>
         <span class="navbar-close" onclick="window.close()">
