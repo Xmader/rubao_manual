@@ -9,11 +9,12 @@ const getArgs = () => {
     return args;
 }
 
-const init_modal = (key,a) => {
+const init_modal = (key, a) => {
     var item = json[key][a]
+    var quote = item["quote"]?`<h3>“${item["quote"]}”</h3><br />`:""
     $("#m_title").text(item["title"])
-    $("#m_body").html(item["content"].replace(/\n/g, "</p><p>"))
-    $("#m_unformatted_body")[0].value = item["content"]
+    $("#m_body").html(quote+"<p>"+item["content"].replace(/\n/g, "</p><p>"))
+    $("#m_unformatted_body")[0].value = item["content"].replace(/<(S*?)[^>]*>.*?|<.*? \/>/g,"")
 }
 
 
@@ -37,11 +38,17 @@ for (var i = 0; i < keys.length; i++) {
 
 
     for (var a = 0; a < items.length; a++) {
-        var item =json[key][a]
+        var item = json[key][a]
+
+        var audio = ""
+        if (item["audio"]) {
+            audio = `<a href="${json["url"]}${item["audio"]}.mp3" target="_blank" class="download_music" download><i class="fa fa-download" aria-hidden="true"></i></a>
+        <audio class="audio${is_Firefox ? "_Firefox" : ""}" src="${json["url"]}${item["audio"]}.mp3" controls></audio>`
+        }
+        
         item_html += `<li class="list-group-item grey">
         <a data-toggle="modal" href="#modal" data-target="#modal" onclick="init_modal('${key}','${a}');">${item["title"]}</a>
-        <a href="${json["url"]}${item["audio"]}.mp3" target="_blank" class="download_music" download><i class="fa fa-download" aria-hidden="true"></i></a>
-        <audio class="audio${is_Firefox ? "_Firefox" : ""}" src="${json["url"]}${item["audio"]}.mp3" controls></audio>
+        ${audio}
         </li>`
     }
 
