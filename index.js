@@ -20,7 +20,7 @@ const init_modal = (key, a) => {
 
 var is_electron_app = navigator.userAgent.indexOf("Electron") > -1
 const is_Firefox = navigator.userAgent.indexOf("Firefox") > -1;
-const is_Chrome = (navigator.userAgent.indexOf("Chrome") > -1) && window.chrome;
+const is_Chrome = (navigator.userAgent.indexOf("Chrome") > -1) && navigator.userAgent.indexOf("Safari") > -1 && !(navigator.userAgent.indexOf("Edge") > -1);
 
 
 const json = rubao_json
@@ -42,12 +42,12 @@ for (var i = 0; i < keys.length; i++) {
 
         var audio = ""
         if (item["audio"]) {
-            audio = `<a href="${json["url"]}${item["audio"]}.mp3" target="_blank" class="download_music" download><i class="fa fa-download" aria-hidden="true"></i></a>
+            audio = `<br /><a href="${json["url"]}${item["audio"]}.mp3" target="_blank" class="download_music" download><i class="fa fa-download" aria-hidden="true"></i></a>
         <audio class="audio${is_Firefox ? "_Firefox" : ""}" src="${json["url"]}${item["audio"]}.mp3" controls></audio>`
         }
 
         item_html += `<li class="list-group-item grey chang ${is_Chrome || is_electron_app ? "chang_chrome" : " "}">
-        <a data-toggle="modal" href="#modal" data-target="#modal" onclick="init_modal('${key}','${a}');">${item["title"]}</a>
+        <a data-toggle="modal" href="#modal" data-target="#modal" onclick="init_modal('${key}','${a}');" class="show_modal_a">${item["title"]}</a>
         ${audio}
         </li>`
     }
@@ -61,6 +61,10 @@ for (var i = 0; i < keys.length; i++) {
     </div>
     <p> &nbsp;</p>`;
     card_deck.append(html);
+
+    if (!is_Firefox) {
+        $(".download_music").hide()
+    }
 
 }
 
