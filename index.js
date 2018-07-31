@@ -12,7 +12,7 @@ const getArgs = () => {
 const init_modal = (key, a) => {
     var item = json[key][a]
     var quote = item["quote"] ? `<h3>“${item["quote"]}”</h3><br />` : ""
-    var video = item["video"] ? `<video src="${json["url"]}videos/${item["video"]}" class="modal_media" preload="Metadata" controls=""></video>` : ""
+    var video = item["video"] ? `<video src="${json["url"]}videos/${item["video"]}.mp4" class="modal_media" preload="Metadata" controls=""></video>` : ""
     $("#m_title").text(item["title"])
     $("#m_body").html(quote + "<p>" + item["content"].replace(/\n/g, "</p><p>") +"</p>"+ video)
     $("#m_unformatted_body")[0].value = item["content"].replace(/<(S*?)[^>]*>.*?|<.*? \/>/g, "")
