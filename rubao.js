@@ -91,7 +91,8 @@ var rubao_json = {
         {
             "title": "左手敬礼",
             "content": "",
-            "audio": " "
+            "audio": " ",
+            "video": "左手敬礼"
         },
         {
             "title": "岿（音kuī）然不动",
