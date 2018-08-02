@@ -9,22 +9,6 @@ const getArgs = () => {
     return args;
 }
 
-// 页面全屏
-// const toggleFullScreen = () => {
-//     const doc = window.document;
-//     const docEl = doc.documentElement;
-
-//     var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
-//     var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
-
-//     if (!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
-//         requestFullScreen.call(docEl);
-//     }
-//     else {
-//         cancelFullScreen.call(doc);
-//     }
-// }
-
 // 网页内全屏视频
 
 const full_screen_video = () => {
