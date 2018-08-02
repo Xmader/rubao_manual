@@ -9,12 +9,44 @@ const getArgs = () => {
     return args;
 }
 
+// 页面全屏
+// const toggleFullScreen = () => {
+//     const doc = window.document;
+//     const docEl = doc.documentElement;
+
+//     var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+//     var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+
+//     if (!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+//         requestFullScreen.call(docEl);
+//     }
+//     else {
+//         cancelFullScreen.call(doc);
+//     }
+// }
+
+// 网页内全屏视频
+
+const full_screen_video = () => {
+    $("#modal").after($(".modal_media"))
+    $(".modal_media").addClass("full_screen_video")
+    $(".modal_media").after(`<button type="button" class="btn btn-primary" style="position: fixed;z-index: 9999;right: 0;top: 0;" onclick="exit_full_screen_video()" id="exit_full_screen_video">退出网页内全屏</button>`)
+}
+
+const exit_full_screen_video = () => {
+    $("#exit_full_screen_video").remove()
+    $(".modal_media").removeClass("full_screen_video")
+    $("#m_body").append($(".modal_media"))
+}
+
+
 const init_modal = (key, a) => {
+    $("#full_screen_video").show()
     var item = json[key][a]
     var quote = item["quote"] ? `<h3>“${item["quote"]}”</h3><br />` : ""
-    var video = item["video"] ? `<video src="${json["url"]}videos/${item["video"]}.mp4" class="modal_media" preload="Metadata" controls=""></video>` : ""
+    var video = item["video"] ? `<video src="${json["url"]}videos/${item["video"]}.mp4" class="modal_media" preload="Metadata" controls=""></video>` : ($("#full_screen_video").hide() ? "" : "")
     $("#m_title").text(item["title"])
-    $("#m_body").html(quote + "<p>" + item["content"].replace(/\n/g, "</p><p>") +"</p>"+ video)
+    $("#m_body").html(quote + "<p>" + item["content"].replace(/\n/g, "</p><p>") + "</p>" + video)
     $("#m_unformatted_body")[0].value = item["content"].replace(/<(S*?)[^>]*>.*?|<.*? \/>/g, "")
 }
 
