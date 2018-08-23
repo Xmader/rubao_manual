@@ -25,7 +25,7 @@ const exit_full_screen_video = () => {
 
 
 const init_modal = (key, a) => {
-    $("#full_screen_video").show()
+    if (typeof _cordova == "undefined") { $("#full_screen_video").show() }
     var item = json[key][a]
     var quote = item["quote"] ? `<h3>“${item["quote"]}”</h3><br />` : ""
     var video = item["video"] ? `<video src="${json["url"]}videos/${item["video"]}.mp4" class="modal_media" preload="Metadata" controls=""></video>` : ($("#full_screen_video").hide() ? "" : "")
