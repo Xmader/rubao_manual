@@ -37,7 +37,8 @@ const init_modal = (key, a) => {
 
 var is_electron_app = navigator.userAgent.indexOf("Electron") > -1
 const is_Firefox = navigator.userAgent.indexOf("Firefox") > -1;
-const is_Chrome = (navigator.userAgent.indexOf("Chrome") > -1) && navigator.userAgent.indexOf("Safari") > -1 && !(navigator.userAgent.indexOf("Edge") > -1);
+const is_Android = navigator.userAgent.indexOf("Android") > -1;
+const is_Chrome = (navigator.userAgent.indexOf("Chrome") > -1) && navigator.userAgent.indexOf("Safari") > -1 && !(navigator.userAgent.indexOf("Edge") > -1) && is_Android;
 
 
 const json = rubao_json
@@ -63,7 +64,7 @@ for (var i = 0; i < keys.length; i++) {
         <audio class="audio${is_Firefox ? "_Firefox" : ""}" src="${json["url"]}sounds/${item["audio"]}.mp3" controls></audio>`
         }
 
-        item_html += `<li class="list-group-item grey chang ${is_Chrome || is_electron_app ? "chang_chrome" : " "}">
+        item_html += `<li class="list-group-item grey chang ${is_Android ? "chang_Android" : (is_Chrome || is_electron_app ? "chang_chrome" : " ")}">
         <a data-toggle="modal" href="#modal" data-target="#modal" onclick="init_modal('${key}','${a}');" class="show_modal_a">${item["title"]}</a>
         ${audio}
         </li>`
