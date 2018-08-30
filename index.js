@@ -13,8 +13,9 @@ const getArgs = () => {
 
 const full_screen_video = () => {
     $("#modal").after($(".modal_media"))
-    $(".modal_media").addClass("full_screen_video")
-    $(".modal_media").after(`<button type="button" class="btn btn-primary" style="position: fixed;z-index: 9999;right: 0;top: 0;" onclick="exit_full_screen_video()" id="exit_full_screen_video">退出网页内全屏</button>`)
+    $(".modal_media")
+        .addClass("full_screen_video")
+        .after(`<button type="button" class="btn btn-primary" onclick="exit_full_screen_video()" id="exit_full_screen_video">退出网页内全屏</button>`)
 }
 
 const exit_full_screen_video = () => {
@@ -34,12 +35,7 @@ const init_modal = (key, a) => {
     $("#m_unformatted_body")[0].value = item["content"].replace(/<(S*?)[^>]*>.*?|<.*? \/>/g, "")
 }
 
-
-var is_electron_app = navigator.userAgent.indexOf("Electron") > -1
 const is_Firefox = navigator.userAgent.indexOf("Firefox") > -1;
-const is_Android = navigator.userAgent.indexOf("Android") > -1;
-const is_Chrome = (navigator.userAgent.indexOf("Chrome") > -1) && navigator.userAgent.indexOf("Safari") > -1 && !(navigator.userAgent.indexOf("Edge") > -1) && is_Android;
-
 
 const json = rubao_json
 
@@ -64,8 +60,8 @@ for (var i = 0; i < keys.length; i++) {
         <audio class="audio${is_Firefox ? "_Firefox" : ""}" src="${json["url"]}sounds/${item["audio"]}.mp3" controls></audio>`
         }
 
-        item_html += `<li class="list-group-item grey chang ${is_Android ? "chang_Android" : (is_Chrome || is_electron_app ? "chang_chrome" : " ")}">
-        <a data-toggle="modal" href="#modal" data-target="#modal" onclick="init_modal('${key}','${a}');" class="show_modal_a">${item["title"]}</a>
+        item_html += `<li class="list-group-item grey chang">
+        <a data-toggle="modal" href="#modal" data-target="#modal" onclick="init_modal('${key}','${a}');" class="show_modal_a"><span class="audio_title">${item["title"]}</span></a>
         ${audio}
         </li>`
     }
@@ -79,6 +75,7 @@ for (var i = 0; i < keys.length; i++) {
     </div>`;
     card_deck.append(html);
 
+    $(".list-group-item.chang").css("padding-bottom", $("audio").height() + 23 + "px")
     if (!is_Firefox) {
         $(".download_music").hide()
     }
