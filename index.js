@@ -76,8 +76,7 @@ for (var i = 0; i < keys.length; i++) {
         <ul class="list-group list-group-flush">
             ${item_html}
         </ul>
-    </div>
-    <p> &nbsp;</p>`;
+    </div>`;
     card_deck.append(html);
 
     if (!is_Firefox) {

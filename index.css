@@ -33,6 +33,15 @@ body {
     padding-bottom: 0px;
 }
 
+.card {
+    margin-bottom: 40px;
+}
+
+#card-deck {
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
 #card-deck a {
     color: #747473;
 }
@@ -83,11 +92,9 @@ body {
         position: absolute;
         right: 0px;
     }
-
     .audio_Firefox {
         margin-right: 62px;
     }
-
     .audio {
         margin-right: 32px;
         margin-bottom: 8px;
@@ -99,31 +106,25 @@ body {
     .list-group-item.chang {
         padding-bottom: 63px !important;
     }
-
     audio {
         padding-top: 73px;
         position: absolute;
         left: 1rem;
     }
-
     .list-group-item.chang.chang_chrome {
         margin-top: 15px;
         padding-bottom: 58px !important;
     }
-
     .list-group-item.chang.chang_chrome audio {
         padding-top: 38px;
     }
-    
     .list-group-item.chang.chang_Android {
         margin-top: 15px;
         padding-bottom: 64px !important;
     }
-
     .list-group-item.chang.chang_Android audio {
         margin-top: 25px;
     }
-
     .download_music {
         margin-top: 16.5px !important;
         left: 286px;
@@ -162,4 +163,8 @@ body {
     height: 100%;
     z-index: 9998;
     background-color: #000;
+}
+
+.navbar-brand a {
+    color: white !important
 }
