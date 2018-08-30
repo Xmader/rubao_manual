@@ -56,7 +56,7 @@ for (var i = 0; i < keys.length; i++) {
 
         var audio = ""
         if (item["audio"]) {
-            audio = `<br /><a href="${json["url"]}sounds/${item["audio"]}.mp3" target="_blank" class="download_music" download><i class="fa fa-download" aria-hidden="true"></i></a>
+            audio = `<a href="${json["url"]}sounds/${item["audio"]}.mp3" target="_blank" class="download_music" download><i class="fa fa-download" aria-hidden="true"></i></a>
         <audio class="audio${is_Firefox ? "_Firefox" : ""}" src="${json["url"]}sounds/${item["audio"]}.mp3" controls></audio>`
         }
 
