@@ -5,6 +5,7 @@
 body {
     background-size: cover;
     font-family: "Microsoft YaHei", 微软雅黑;
+    overflow: hidden;
 }
 
 .top-nav {
