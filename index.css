@@ -5,7 +5,6 @@
 body {
     background-size: cover;
     font-family: "Microsoft YaHei", 微软雅黑;
-    overflow: hidden;
 }
 
 .top-nav {
@@ -117,6 +116,9 @@ body {
     .audio_title {
         margin-right: 300px !important;
         white-space: nowrap;
+    }
+    .list-group-item.chang {
+        overflow: hidden;
     }
 }
 
