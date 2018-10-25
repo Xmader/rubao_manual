@@ -127,7 +127,9 @@ body {
 .icon {
     position: absolute;
     height: 30px;
+    width: 30px;
     margin-left: 1rem;
+    top: 0.8125em;
 }
 
 .show_modal_a {
@@ -146,6 +148,10 @@ body {
 
 .modal-body {
     padding: 20px 24px 0px;
+}
+
+.modal-body>h3,
+.modal-body>#m_body {
     text-indent: 2em;
 }
 

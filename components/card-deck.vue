@@ -33,6 +33,8 @@
 
 <script>
 import "../libs/String.prototype.includes.polyfill.js"
+import "../libs/Object.assign.polyfill.js"
+import "../libs/Object.entries.polyfill.js"
 
 export default {
     data: function () {
