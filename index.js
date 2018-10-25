@@ -10,7 +10,7 @@
 */
 
 // const Vue = require("vue/dist/vue.js")
-import Vue from "vue/dist/vue.runtime.esm"
+import Vue from "vue/dist/vue.runtime.min.js"
 import components from "./components/components.js"
 import rubao_resources from "./rubao.js"
 
