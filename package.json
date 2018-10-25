@@ -1,11 +1,12 @@
 {
   "name": "rubao_manual",
   "description": "乳包指南 网页版",
+  "version": "2.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/Xmader/rubao_manual"
   },
-  "author": "xmader",
+  "author": "Xmader",
   "scripts": {
     "start": "http-server . -p 8082 -c-1",
     "build": "parcel build index.js --public-url ./"
@@ -13,8 +14,11 @@
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
+    "@vue/component-compiler-utils": "^2.2.0",
     "http-server": "github:Xmader/http-server",
-    "parcel-bundler": "^1.10.3"
+    "parcel-bundler": "^1.10.3",
+    "vue": "^2.5.17",
+    "vue-template-compiler": "^2.5.17"
   },
   "license": "MIT"
 }
