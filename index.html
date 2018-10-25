@@ -3,60 +3,23 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" href="icon.jpg">
     <link rel="shortcut icon" href="icon.jpg">
     <title>乳包指南</title>
-    <link href="src/bootstrap-material-design.min.css" rel="stylesheet">
-    <link href="src/font-awesome.css" rel="stylesheet">
     <link href="index.css" rel="stylesheet">
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-primary top-nav">
-        <img src="icon.jpg" class="icon" />
-        <span class="navbar-brand">
-
-            <a href="#">乳包指南</a>
-        </span>
-        <span class="navbar-close" onclick="window.close()">
-            <i class="fa fa-times" aria-hidden="true"></i>
-        </span>
-    </nav>
-    <div class="container">
-        <div id="card-deck">
-        </div>
-    </div>
-
-    <div class="modal" tabindex="-1" role="dialog" id="modal">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="m_title"></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="$('#modal').modal('hide')">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p id="m_body" style="text-indent:2em; "></p>
-                    <input style="display:none;" id="m_unformatted_body" value="" type="text">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" onclick="full_screen_video()" id="full_screen_video">网页内全屏视频</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="$('#modal').modal('hide')">关闭</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="src/jquery.js"></script>
-    <script src="src/underscore-min.js"></script>
-    <script src="rubao.js"></script>
-    <script src="lib/index.js"></script>
-    <script src="src/popper.js"></script>
-    <script src="src/bootstrap-material-design.js"></script>
-    <script>$(document).ready(function () { $('body').bootstrapMaterialDesign(); });</script>
+    <div id="app"></div>
+    <script src="./dist/index.js"></script>
+    <script>
+        // 注册 serviceWorker
+        if (typeof navigator.serviceWorker !== 'undefined') {
+            navigator.serviceWorker.register('sw.js')
+        }
+    </script>
 </body>
 
 </html>
