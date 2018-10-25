@@ -1,5 +1,4 @@
-var rubao_json = {
-    "url": "",
+const rubao_resources = {
     "名言": [
         {
             "title": "通商宽衣",
@@ -136,3 +135,5 @@ var rubao_json = {
         },
     ]
 }
+
+export default rubao_resources
