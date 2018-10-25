@@ -30,7 +30,7 @@
 
                         <p id="m_body" v-html="body"></p>
 
-                        <video v-if="video" :src="video" class="modal_media" preload="auto" controls></video>
+                        <video v-if="video" ref="video" :src="video" class="modal_media" preload="auto" controls></video>
                     </div>
                     <div class="modal-footer">
                         <button v-if="video && !$_using_cordova()" type="button" class="btn btn-primary" @click="full_screen_video()" id="full_screen_video">网页内全屏视频</button>
@@ -64,7 +64,6 @@ export default {
             const classList = document.body.classList
             const elements = [
                 document.body,
-                document.getElementById("bottom-nav"),
                 document.getElementsByClassName("search")[0]
             ]
 
